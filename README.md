@@ -8,7 +8,7 @@ go to easy to your workspace folder and clone the repo:
 [How to clone a repo](https://help.github.com/en/articles/cloning-a-repository) 
 
 open terminal and type: 
-{code}
+```
 //go into proyect folder
 $ cd /project-folder
 // Install virtualenv:
@@ -22,4 +22,4 @@ $ source ENV/bin/activate
 $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
-{code}
+```
