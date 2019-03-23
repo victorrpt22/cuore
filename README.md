@@ -23,3 +23,7 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
+
+user: cuore
+email: cuore@cuore.com
+pass: cuore123

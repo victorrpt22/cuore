@@ -8,6 +8,7 @@ class Patient(models.Model):
     registered      = models.DateTimeField(auto_now_add=True)
     email           = models.EmailField()
     avatar          = models.ImageField()
+    status          = models.BooleanField()
 
 class Comments(models.Model):
     patient     = models.ForeignKey(Patient, on_delete=models.CASCADE)
