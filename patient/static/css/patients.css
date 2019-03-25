@@ -1,0 +1,28 @@
+.patient-grid{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 10px;
+    margin-top: 10px;
+}
+
+.patient-card{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 4px 2px #f8f9fa;
+    border-radius: 3px;
+    display: grid;
+    grid-template-rows: 100px auto;
+}
+
+.patient-card .tumbnail{
+    width: 100px;
+}
+
+.patient-card .tumbnail .hr{
+    
+}
+.patient-card .tumbnail img{
+    width: 100%
+}
+.patient-card .bottom_card {
+    color: black;
+}

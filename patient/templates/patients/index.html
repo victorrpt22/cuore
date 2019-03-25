@@ -1,0 +1,32 @@
+{% extends 'patients/base.html' %}
+{% block content %}
+    {% if all_patients %}
+        <div class="patient-grid">
+            {% for patient in all_patients %}
+            <a href="/patient/{{ patient.id }}/">
+                <div class="patient-card">
+                    <div class="top_card">
+                        <div class="tumbnail">
+                            {% if patient.avatar %}
+                            <img src="{{ patient.avatar.image.url }}" alt="">
+                            {% else %}
+                            <img src="/media/default.png" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="hr">
+                            <img src="/media/" alt="">
+                        </div>
+                    </div>
+                    <div class="bottom_card">
+                        <p class="font-weight-bold"> {{ patient.first_name }} {{ patient.last_name }} </p>
+                        <p>Birth: {{ patient.date_of_birth }}</p>
+                        <p>Emergency: {{ patient.phone }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+            {% else %}
+        <p>No patients are available.</p>
+    {% endif %}
+{% endblock %}
