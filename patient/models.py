@@ -14,6 +14,7 @@ class Patient(models.Model):
         ('F', 'Femenino'),
     )    
     gender          = models.CharField(max_length=1, choices=GENDERS_CHOICES, default='M')
+
     def __str__(self):
         return self.first_name + " " + self.last_name + " (" + self.email + ")" 
 

@@ -20,6 +20,9 @@
 .patient-card .hr{
     line-height: 100px;
     text-align: center;
+    color: crimson;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 .patient-card .tumbnail img{
     width: 100%
