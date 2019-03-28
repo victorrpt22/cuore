@@ -8,3 +8,4 @@ class Ranges(models.Model):
     max_normal_pulse = models.IntegerField(default=0)
     min_limit = models.IntegerField(default=0)
     max_limit = models.IntegerField(default=0)
+    gender = models.CharField(max_length=1, blank=True)

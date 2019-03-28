@@ -7,10 +7,20 @@ class Patient(models.Model):
     date_of_birth   = models.DateField(auto_now=False, auto_now_add=False)
     registered      = models.DateTimeField(auto_now_add=True)
     email           = models.EmailField(blank=True)
-    avatar          = models.ImageField(blank=True, upload_to='patient/uploaded_images/')
+    avatar          = models.ImageField(blank=True)
     status          = models.BooleanField(default=True)
+    GENDERS_CHOICES = (
+        ('M', 'Masculino'),
+        ('F', 'Femenino'),
+    )    
+    gender          = models.CharField(max_length=1, choices=GENDERS_CHOICES, default='M')
     def __str__(self):
         return self.first_name + " " + self.last_name + " (" + self.email + ")" 
+
+class logs(models.Model):
+    user = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    heart_rate = models.FloatField(default=0)
+    inserted = models.DateTimeField(auto_now_add=True)
 
 class Comments(models.Model):
     patient     = models.ForeignKey(Patient, on_delete=models.CASCADE)

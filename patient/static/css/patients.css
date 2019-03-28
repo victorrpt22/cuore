@@ -14,15 +14,21 @@
 }
 
 .patient-card .tumbnail{
-    width: 100px;
+    width: 100%;
 }
 
-.patient-card .tumbnail .hr{
-    
+.patient-card .hr{
+    line-height: 100px;
+    text-align: center;
 }
 .patient-card .tumbnail img{
     width: 100%
 }
 .patient-card .bottom_card {
     color: black;
+    padding: 5px;
+}
+.top_card {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
