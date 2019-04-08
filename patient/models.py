@@ -22,6 +22,8 @@ class logs(models.Model):
     user = models.ForeignKey(Patient, on_delete=models.CASCADE)
     heart_rate = models.FloatField(default=0)
     inserted = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return str(self.heart_rate)
 
 class Comments(models.Model):
     patient     = models.ForeignKey(Patient, on_delete=models.CASCADE)

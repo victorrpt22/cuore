@@ -7,7 +7,7 @@
 
 .patient-card{
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 4px 2px #f8f9fa;
+    box-shadow: 0 0 4px 2px #b3b3b3;
     border-radius: 3px;
     display: grid;
     grid-template-rows: 100px auto;
@@ -15,23 +15,44 @@
 
 .patient-card .tumbnail{
     width: 100%;
+    height: 100px;
 }
 
 .patient-card .hr{
     line-height: 100px;
     text-align: center;
-    color: crimson;
+    color: green;
     font-weight: bold;
     font-family: sans-serif;
 }
 .patient-card .tumbnail img{
-    width: 100%
+    width: 100%;
+    height: 100px;
 }
 .patient-card .bottom_card {
-    color: black;
+    color: rgb(116, 116, 116);
     padding: 5px;
+    border-top: solid 1px #b3b3b3;
 }
 .top_card {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+.name{
+    color: black
+}
+.patient-detail{
+    margin-top: 10px;
+}
+.patient-detail form{
+    margin-top: 10px;
+}
+.patient-detail .detail-tumbnail{
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px 0px #928f8f;
+    border-radius: 13px;
+}
+.patient-detail .detail-tumbnail img{
+    width: 100%;
 }

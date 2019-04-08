@@ -1,6 +1,84 @@
 {% extends 'patients/base.html' %}
 {% block content %}
 <div class="patient-detail">
-    <div class="detail-tumbnail"></div>
+    <div class="detail-tumbnail">
+            {% if patient.avatar %}
+            <img src="/media/{{ patient.avatar }}" alt="">
+            {% else %}
+            <img src="/media/default.png" alt="">
+            {% endif %}
+    </div>
+    <div class="info-form">
+        <form action="">
+            <div class="form-group">
+                <label for="patientName">First name</label>
+                <input type="text" class="form-control" id="patientName" placeholder="e.g. Juan" value="{{ patient.first_name }}">
+            </div>
+            <div class="form-group">
+                <label for="patientLastName">Last name</label>
+                <input type="text" class="form-control" id="patientLastName" placeholder="e.g. Perez" value="{{ patient.last_name }}">
+            </div>
+            <div class="form-group">
+                <label for="DateOfBirth">Date of birth (Day/Month/Year)</label>
+                <input type="date" class="form-control" id="DateOfBirth" value='{{ patient.date_of_birth|date:"Y-m-d" }}'>
+            </div>
+            <div class="form-group">
+                <label for="patientEmail">Email</label>
+                <input type="email" class="form-control" id="patientEmail" placeholder="example@example.com" value="{{ patient.email }}">
+            </div>
+            <div class="form-group">
+                <label for="gender">Email</label>
+                <select type="email" class="form-control" id="gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="graph">
+
+        <canvas id="myChart" width="400" height="250"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels:['1s', '2s', '3s', '4s', '5s','6s', '7s', '8s', '9s', '10s','11s', '12s', '13s', '14s', '15s','16s', '17s', '18s', '19s', '20s'],
+                    datasets: [{
+                        label: 'Heart Rate',
+                        data: [1,2,3],
+                        borderWidth: 1,
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                suggestedMin: 50,
+                                suggestedMax: 80,
+                                stepSize: 5
+                            }
+                        }]
+                    }
+                }
+            });
+            setInterval(getData,1000)
+            
+            function getData(){
+                fetch("{% url 'get_pulses' patient.id %}", {mode:"cors"}).then(res=>{
+                    return res.json();
+                }).then(x=>{
+                    updateChart(x.data);
+                })
+            }
+            function updateChart(val){
+                console.log(val)
+                myChart.data.datasets[0].data = val;
+                myChart.update()
+            }
+        </script>
 </div>
 {% endblock %}
